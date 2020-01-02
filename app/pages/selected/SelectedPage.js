@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, FlatList, ImageBackground, Image, StyleSheet, TouchableOpacity } from 'react-native'
 
-import { axios, API, width } from '../../utils'
+import { axios, API, width, formatDate } from '../../utils'
 
 class SelectedPage extends Component {
   constructor (props) {
@@ -25,13 +25,13 @@ class SelectedPage extends Component {
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={this.handleVideo}>
-          <ImageBackground style={styles.video_img} source={{ uri: item.data && item.data.content && item.data.content.data && item.data.content.data.cover && item.data.content.data.cover.feed }}>
-            <Text style={styles.time}>123</Text>
+          <ImageBackground style={styles.video_img} source={{ uri: item.item.data.content.data.cover.feed }}>
+            <Text style={styles.time}>{formatDate(item.item.data.content.data.releaseTime, 'mm:ss')}</Text>
           </ImageBackground>
         </TouchableOpacity>
         <View style={styles.video_info}>
           <View style={styles.video_head}>
-            <Image />
+            <Image source={{ uri: item.item.data.header.icon }} style={styles.head_img} />
           </View>
           <View style={styles.video_cont}>
             <Text>123</Text>
@@ -70,14 +70,26 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff'
   },
   video_img: {
+    position: 'relative',
     width: width - 30,
     height: 160,
     backgroundColor: '#F5F6F8',
     borderRadius: 8,
-    overflow: 'hidden'
+    overflow: 'hidden',
+    resizeMode: 'cover'
   },
   time: {
-
+    position: 'absolute',
+    right: 10,
+    bottom: 10,
+    color: '#fff'
+  },
+  head_img: {
+    width: 32,
+    height: 32,
+    borderRadius: 32,
+    overflow: 'hidden',
+    backgroundColor: '#F5F6F8'
   }
 })
 
