@@ -1,7 +1,7 @@
 import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 
-import { MainPage, InitApp } from '../home/index'
+import { MainPage, InitApp } from '../pages/home/index'
 
 const AppNavigator = createStackNavigator(
   {
@@ -9,7 +9,7 @@ const AppNavigator = createStackNavigator(
     MainPage
   },
   {
-    initialRouteName: 'Home'
+    initialRouteName: 'MainPage'
   }
 )
 
