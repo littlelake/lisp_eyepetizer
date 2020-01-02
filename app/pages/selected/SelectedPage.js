@@ -14,10 +14,12 @@ class SelectedPage extends Component {
   render () {
     const { videoList } = this.state
     return (
-      <FlatList
-        data={videoList}
-        renderItem={(item) => this._renderItem(item)}
-      />
+      <View style={{ paddingBottom: 20, backgroundColor: '#fff' }}>
+        <FlatList
+          data={videoList}
+          renderItem={(item) => this._renderItem(item)}
+        />
+      </View>
     )
   }
 
@@ -34,8 +36,8 @@ class SelectedPage extends Component {
             <Image source={{ uri: item.item.data.header.icon }} style={styles.head_img} />
           </View>
           <View style={styles.video_cont}>
-            <Text>123</Text>
-            <Text>123</Text>
+            <Text numberOfLines={1} style={{ width: '100%', fontSize: 16, fontWeight: '500' }}>{item.item.data.content.data.title}</Text>
+            <Text numberOfLines={1} style={{ paddingTop: 4, width: '100%', fontSize: 14 }}>{item.item.data.content.data.description}</Text>
           </View>
         </View>
       </View>
@@ -66,6 +68,7 @@ class SelectedPage extends Component {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
+    paddingTop: 20,
     paddingHorizontal: 15,
     backgroundColor: '#fff'
   },
@@ -85,11 +88,21 @@ const styles = StyleSheet.create({
     color: '#fff'
   },
   head_img: {
-    width: 32,
-    height: 32,
-    borderRadius: 32,
+    width: 40,
+    height: 40,
+    borderRadius: 40,
     overflow: 'hidden',
     backgroundColor: '#F5F6F8'
+  },
+  video_info: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: 10
+  },
+  video_cont: {
+    marginLeft: 15,
+    width: width - 85
   }
 })
 
