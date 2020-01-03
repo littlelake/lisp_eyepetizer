@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, TouchableWithoutFeedback, ImageBackground, Image } from 'react-native'
+import { Text, View, StyleSheet, ImageBackground, Image, TouchableOpacity } from 'react-native'
 
 import { ratio } from '../../utils'
 
@@ -20,14 +20,14 @@ class VideoDetailPage extends Component {
     const description = getParam('description')
     return (
       <View style={{ flex: 1, flexDirection: 'column' }}>
-        <TouchableWithoutFeedback onPress={this.handleVideoPlay}>
-          <ImageBackground
-            style={styles.cover_detail}
-            source={{ uri: coverForDetail }}
-          >
+        <ImageBackground
+          style={styles.cover_detail}
+          source={{ uri: coverForDetail }}
+        >
+          <TouchableOpacity onPress={this.handleVideoPlay} style={{ width: 60, height: 60 }} activeOpacity={0.8}>
             <Image style={styles.icon_play} source={require('../../imgs/ic_action_play.png')} />
-          </ImageBackground>
-        </TouchableWithoutFeedback>
+          </TouchableOpacity>
+        </ImageBackground>
         <ImageBackground
           source={{ uri: coverBlured }}
           style={styles.img_cover_blur}
@@ -48,7 +48,10 @@ class VideoDetailPage extends Component {
   }
 
   handleVideoPlay = () => {
-
+    const { getParam, navigate } = this.props.navigation
+    navigate('VideoPlayPage', {
+      playUrl: getParam('playUrl')
+    })
   }
 }
 

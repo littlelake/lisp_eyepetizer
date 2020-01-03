@@ -4,12 +4,12 @@ import Video from 'react-native-video'
 
 class VideoPlayPage extends Component {
   render () {
-    const { playUrl } = this.props
+    const { getParam } = this.props.navigation
     return (
       <View style={{ flex: 1, backgroundColor: '#333' }}>
         <Video
           ref={ref => (this.player = ref)}
-          source={playUrl}
+          source={{ uri: getParam('playUrl') }}
           rate={1.0}
           volume={1.0}
           muted={false}

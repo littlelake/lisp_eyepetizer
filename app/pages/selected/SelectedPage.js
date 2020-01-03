@@ -67,7 +67,8 @@ class SelectedPage extends Component {
       coverForDetail: item.item.data.content.data.cover.detail,
       coverBlured: item.item.data.content.data.cover.blurred,
       title: item.item.data.content.data.title,
-      description: item.item.data.content.data.description
+      description: item.item.data.content.data.description,
+      playUrl: item.item.data.content.data.playUrl
     })
   }
 }
