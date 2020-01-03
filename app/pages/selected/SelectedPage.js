@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, FlatList, ImageBackground, Image, StyleSheet, TouchableOpacity } from 'react-native'
 
-import { axios, API, width, formatDate } from '../../utils'
+import { axios, API, width, formatDate, ratio } from '../../utils'
 
 class SelectedPage extends Component {
   constructor (props) {
@@ -14,7 +14,7 @@ class SelectedPage extends Component {
   render () {
     const { videoList } = this.state
     return (
-      <View style={{ paddingBottom: 20, backgroundColor: '#fff' }}>
+      <View style={{ paddingVertical: 10, backgroundColor: '#fff' }}>
         <FlatList
           data={videoList}
           renderItem={(item) => this._renderItem(item)}
@@ -24,6 +24,7 @@ class SelectedPage extends Component {
   }
 
   _renderItem = (item) => {
+    console.log(item)
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={this.handleVideo}>
@@ -68,7 +69,7 @@ class SelectedPage extends Component {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    paddingTop: 20,
+    paddingTop: 10,
     paddingHorizontal: 15,
     backgroundColor: '#fff'
   },
@@ -85,6 +86,11 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 10,
     bottom: 10,
+    paddingHorizontal: 5,
+    paddingVertical: 3,
+    borderRadius: 4,
+    overflow: 'hidden',
+    backgroundColor: '#000',
     color: '#fff'
   },
   head_img: {
@@ -98,7 +104,10 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    paddingTop: 10
+    paddingTop: 10,
+    paddingBottom: 15,
+    borderBottomWidth: 1 / ratio,
+    borderColor: '#ededed'
   },
   video_cont: {
     marginLeft: 15,
