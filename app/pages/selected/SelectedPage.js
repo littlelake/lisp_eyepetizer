@@ -27,7 +27,7 @@ class SelectedPage extends Component {
     console.log(item)
     return (
       <View style={styles.container}>
-        <TouchableOpacity onPress={this.handleVideo}>
+        <TouchableOpacity onPress={() => this.handleVideo(item)} activeOpacity={0.6}>
           <ImageBackground style={styles.video_img} source={{ uri: item.item.data.content.data.cover.feed }}>
             <Text style={styles.time}>{formatDate(item.item.data.content.data.releaseTime, 'mm:ss')}</Text>
           </ImageBackground>
@@ -61,8 +61,14 @@ class SelectedPage extends Component {
     })
   }
 
-  handleVideo = () => {
-
+  handleVideo = (item) => {
+    const { navigate } = this.props.navigation
+    navigate('VideoDetailPage', {
+      coverForDetail: item.item.data.content.data.cover.detail,
+      coverBlured: item.item.data.content.data.cover.blurred,
+      title: item.item.data.content.data.title,
+      description: item.item.data.content.data.description
+    })
   }
 }
 

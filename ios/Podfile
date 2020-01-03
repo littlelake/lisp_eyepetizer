@@ -35,7 +35,6 @@ target 'lisp_eyepetizer' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
 
-  pod 'react-native-video', :path => '../node_modules/react-native-video'
 
   target 'lisp_eyepetizerTests' do
     inherit! :search_paths

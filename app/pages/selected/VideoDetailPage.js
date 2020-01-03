@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, TouchableWithoutFeedback, ImageBackground, Image } from 'react-native'
 
-import VideoPlayPage from './VideoPlayPage'
+import { ratio } from '../../utils'
 
 class ActionIcon extends Component {
   render () {
@@ -13,19 +13,23 @@ class ActionIcon extends Component {
 
 class VideoDetailPage extends Component {
   render () {
-    const { coverForDetail, coverBlured, title, description } = this.props
+    const { getParam } = this.props.navigation
+    const coverForDetail = getParam('coverForDetail')
+    const coverBlured = getParam('coverBlured')
+    const title = getParam('title')
+    const description = getParam('description')
     return (
       <View style={{ flex: 1, flexDirection: 'column' }}>
         <TouchableWithoutFeedback onPress={this.handleVideoPlay}>
           <ImageBackground
             style={styles.cover_detail}
-            source={coverForDetail}
+            source={{ uri: coverForDetail }}
           >
             <Image style={styles.icon_play} source={require('../../imgs/ic_action_play.png')} />
           </ImageBackground>
         </TouchableWithoutFeedback>
-        <Image
-          source={coverBlured}
+        <ImageBackground
+          source={{ uri: coverBlured }}
           style={styles.img_cover_blur}
         >
           <View style={styles.container_bottom}>
@@ -38,7 +42,7 @@ class VideoDetailPage extends Component {
               <ActionIcon source={require('../../imgs/ic_action_offline_without_padding.png')} />
             </View>
           </View>
-        </Image>
+        </ImageBackground>
       </View>
     )
   }
@@ -51,7 +55,7 @@ class VideoDetailPage extends Component {
 const styles = StyleSheet.create({
   container_bottom: {
     paddingTop: 20,
-    paddingLeft: 20,
+    paddingHorizontal: 20,
     flexDirection: 'column'
   },
   img_bottom_action: {
@@ -83,7 +87,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     marginTop: 32,
     paddingTop: 14,
-    borderTopWidth: 0.3,
+    borderTopWidth: 1 / ratio,
     borderTopColor: '#716668',
     lineHeight: 18
   }
