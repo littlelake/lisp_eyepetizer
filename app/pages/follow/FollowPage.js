@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
 
-import { width } from '../../utils'
+import { width, ratio } from '../../utils'
 import FollowJOSN from './FollowJson.json'
 import { BackgroundImage } from '../../components'
 
@@ -20,26 +20,19 @@ class FollowPage extends Component {
       <ScrollView>
         <View style={styles.container}>
           {
-            data && data.length ? data.map((item, index) => (
-              <TouchableOpacity activeOpacity={0.6} key={item._id}>
-                <View style={styles.item}>
-                  <BackgroundImage source={item.url} style={styles.image_bg} width={Math.floor((width - 40) / 2)}>
-                    {item.selected ? <Text style={styles.image_txt}>精选</Text> : null}
-                  </BackgroundImage>
-                  <Text style={styles.title} numberOfLines={2}>{item.title}</Text>
-                  <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', paddingBottom: 10 }}>
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                      <Image source={require('../../imgs/home_page_header_icon.png')} style={styles.icon} />
-                      <Text style={styles.txt}>{item.author}</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                      <Text style={styles.num}>{item.star}</Text>
-                      <Image source={require('../../imgs/ic_action_favorites_grey.png')} style={styles.star} />
-                    </View>
-                  </View>
+            data && data.length
+              ? [0, 1].map((row, idx) => (
+                <View style={{ width: Math.floor((width - 40) / 2) }} key={idx}>
+                  {
+                    data.map((item, index) => (
+                      <View key={item._id}>
+                        {(index % 2) === 1 && idx === 0 ? this._renderItem(item, false) : null}
+                        {(index % 2) === 0 && idx === 1 ? this._renderItem(item, true) : null}
+                      </View>
+                    ))
+                  }
                 </View>
-              </TouchableOpacity>
-            )) : <Text>暂无数据</Text>
+              )) : <View style={styles.no_record}><Text style={{ color: '#999' }}>--暂无数据--</Text></View>
           }
         </View>
       </ScrollView>
@@ -51,12 +44,34 @@ class FollowPage extends Component {
       this.setState({ data: FollowJOSN.results })
     }
   }
+
+  _renderItem = (item, bool) => {
+    return (
+      <TouchableOpacity activeOpacity={0.6}>
+        <View style={[styles.item, bool ? { marginLeft: 10 } : '']}>
+          <BackgroundImage source={item.url} style={styles.image_bg} width={Math.floor((width - 40) / 2)}>
+            {item.selected ? <Text style={styles.image_txt}>精选</Text> : null}
+          </BackgroundImage>
+          <Text style={styles.title} numberOfLines={2}>{item.title}</Text>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', paddingBottom: 10 }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Image source={require('../../imgs/home_page_header_icon.png')} style={styles.icon} />
+              <Text style={styles.txt}>{item.author}</Text>
+            </View>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Text style={styles.num}>{item.star}</Text>
+              <Image source={require('../../imgs/ic_action_favorites_grey.png')} style={styles.star} />
+            </View>
+          </View>
+        </View>
+      </TouchableOpacity>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexWrap: 'wrap',
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingTop: 20,
@@ -85,6 +100,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingVertical: 3,
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    borderWidth: 1 / ratio,
+    borderColor: '#fff',
     color: '#fff',
     borderRadius: 4,
     overflow: 'hidden'
@@ -117,6 +134,14 @@ const styles = StyleSheet.create({
     paddingRight: 5,
     fontSize: 13,
     color: '#444'
+  },
+  no_record: {
+    flex: 1,
+    flexDirection: 'row',
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    marginTop: 20
   }
 })
 
