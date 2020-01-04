@@ -1,2 +1,2 @@
-# lisp_eyepetizer
-react native 仿天眼
+# react-native-eyepetizer
+react native 仿开眼
