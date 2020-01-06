@@ -18,8 +18,8 @@ const detailItem = [
   { id: '0012', title: '#动画', img: '' },
   { id: '0013', title: '#搞笑', img: '' },
   { id: '0014', title: '#时尚', img: '' },
-  { id: '0014', title: '#生活', img: '' },
-  { id: '0014', title: '#综艺', img: '' }
+  { id: '0015', title: '#生活', img: '' },
+  { id: '0016', title: '#综艺', img: '' }
 ]
 
 class ExplorePage extends Component {
