@@ -3,7 +3,7 @@ import { createStackNavigator } from 'react-navigation-stack'
 
 import { MainPage, InitApp } from '../pages/home/index'
 import { VideoDetailPage, VideoPlayPage } from '../pages/selected'
-import { Login, ProfilePage } from '../pages/profile'
+import { Login, ProfilePage, LoginPrev } from '../pages/profile'
 
 const AppNavigator = createStackNavigator(
   {
@@ -12,10 +12,11 @@ const AppNavigator = createStackNavigator(
     VideoDetailPage,
     VideoPlayPage,
     Login,
-    ProfilePage
+    ProfilePage,
+    LoginPrev
   },
   {
-    initialRouteName: 'MainPage'
+    initialRouteName: 'LoginPrev'
   }
 )
 
