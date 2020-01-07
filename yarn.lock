@@ -3596,6 +3596,11 @@ istanbul-reports@^2.2.6:
   dependencies:
     handlebars "^4.1.2"
 
+jcore-react-native@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.npm.taobao.org/jcore-react-native/download/jcore-react-native-1.7.0.tgz#3c427cef7d0d8496828d17faf105b85b1a045f19"
+  integrity sha1-PEJ8730NhJaCjRf68QW4WxoEXxk=
+
 jest-changed-files@^24.9.0:
   version "24.9.0"
   resolved "https://registry.npm.taobao.org/jest-changed-files/download/jest-changed-files-24.9.0.tgz#08d8c15eb79a7fa3fc98269bc14b451ee82f8039"
@@ -4100,6 +4105,11 @@ jsx-ast-utils@^2.0.1, jsx-ast-utils@^2.2.3:
   dependencies:
     array-includes "^3.0.3"
     object.assign "^4.1.0"
+
+jverification-react-native@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.npm.taobao.org/jverification-react-native/download/jverification-react-native-2.3.0.tgz#49650d4d84bac3852957e9e35830dcdf605a95b5"
+  integrity sha1-SWUNTYS6w4UpV+njWDDc32BalbU=
 
 keymirror@^0.1.1:
   version "0.1.1"
