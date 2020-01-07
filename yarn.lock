@@ -4106,11 +4106,6 @@ jsx-ast-utils@^2.0.1, jsx-ast-utils@^2.2.3:
     array-includes "^3.0.3"
     object.assign "^4.1.0"
 
-jverification-react-native@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.npm.taobao.org/jverification-react-native/download/jverification-react-native-2.3.0.tgz#49650d4d84bac3852957e9e35830dcdf605a95b5"
-  integrity sha1-SWUNTYS6w4UpV+njWDDc32BalbU=
-
 keymirror@^0.1.1:
   version "0.1.1"
   resolved "https://registry.npm.taobao.org/keymirror/download/keymirror-0.1.1.tgz#918889ea13f8d0a42e7c557250eee713adc95c35"

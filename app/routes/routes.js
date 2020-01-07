@@ -5,7 +5,7 @@ import { MainPage, InitApp } from '../pages/home/index'
 import { VideoDetailPage, VideoPlayPage } from '../pages/selected'
 import { Login, ProfilePage, LoginPrev } from '../pages/profile'
 
-import Test from '../pages/Test'
+// import Test from '../pages/Test'
 
 const AppNavigator = createStackNavigator(
   {
@@ -15,11 +15,11 @@ const AppNavigator = createStackNavigator(
     VideoPlayPage,
     Login,
     ProfilePage,
-    LoginPrev,
-    Test
+    LoginPrev
+    // Test
   },
   {
-    initialRouteName: 'Test'
+    initialRouteName: 'MainPage'
   }
 )
 
