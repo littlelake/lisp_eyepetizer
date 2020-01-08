@@ -1,5 +1,5 @@
 # react-native-eyepetizer
-react native 仿开眼
+> react native 仿开眼
 
 ## CodePush 热更新
 
