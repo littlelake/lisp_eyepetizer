@@ -669,9 +669,7 @@
 					"\"${PODS_ROOT}/Headers/Public/Yoga\"",
 					"\"${PODS_ROOT}/Headers/Public/glog\"",
 					"\"${PODS_ROOT}/Headers/Public/react-native-safe-area-context\"",
-					"\"$(PODS_ROOT)/Headers/Private/React-Core\"",
-					"$(SRCROOT)/../node_modules/jcore-react-native/ios/RCTJCoreModule/",
-					"$(SRCROOT)/../node_modules/jverification-react-native/ios/RCTJVerificationModule/",
+					"\"$(PODS_ROOT)/Headers/Private/React-Core\""
 				);
 				INFOPLIST_FILE = lisp_eyepetizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

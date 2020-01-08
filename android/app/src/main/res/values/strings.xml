@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">lisp_eyepetizer</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">OtFBbtYfgT-lSiAhWVx_-0OxWtYtLs_xmEyQX</string>
 </resources>
