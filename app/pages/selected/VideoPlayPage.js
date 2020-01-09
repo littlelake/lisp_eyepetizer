@@ -11,9 +11,14 @@ class VideoPlayPage extends Component {
         <Video
           url={getParam('playUrl')}
           style={styles.video_bg}
+          onPlay={(playing) => { this._onPlay(playing) }}
         />
       </View>
     )
+  }
+
+  _onPlay = (playing) => {
+    console.log(playing)
   }
 }
 

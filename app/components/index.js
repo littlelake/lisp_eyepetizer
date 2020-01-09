@@ -1,5 +1,5 @@
 import BackgroundImage from './BackgroundImage'
-import Video from './Video'
+import { Video } from './video'
 
 export {
   BackgroundImage, Video
