@@ -78,12 +78,12 @@ class App extends React.Component {
   }
 
   async componentWillMount () {
-    CodePush.disallowRestart() // 禁止重启
-    this.update() // 开始检查更新
+    // CodePush.disallowRestart() // 禁止重启
+    // this.update() // 开始检查更新
   }
 
   componentDidMount () {
-    CodePush.allowRestart() // 在加载完了，允许重启
+    // CodePush.allowRestart() // 在加载完了，允许重启
   }
 }
 

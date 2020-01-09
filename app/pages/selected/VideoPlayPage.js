@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { View, StyleSheet } from 'react-native'
-import Video from 'react-native-video'
+import { View, StyleSheet, Text } from 'react-native'
+
+import { Video } from '../../components'
 
 class VideoPlayPage extends Component {
   render () {
@@ -8,17 +9,7 @@ class VideoPlayPage extends Component {
     return (
       <View style={{ flex: 1, backgroundColor: '#333' }}>
         <Video
-          ref={ref => (this.player = ref)}
-          source={{ uri: getParam('playUrl') }}
-          rate={1.0}
-          volume={1.0}
-          muted={false}
-          paused={false}
-          repeat={false}
-          playInBackground={false}
-          playWhenInactive={false}
-          progressUpdateInterval={250.0}
-          resizeMode='contain'
+          url={getParam('playUrl')}
           style={styles.video_bg}
         />
       </View>

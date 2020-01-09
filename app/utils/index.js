@@ -6,11 +6,16 @@ import { formatDate, transferTime, transferPlayerTime, formatVersion } from './f
 const { width, height } = Dimensions.get('window')
 const ratio = PixelRatio.get()
 
+const checkSource = (uri) => {
+  return typeof uri === 'string' ? { source: { uri } } : { source: uri }
+}
+
 export {
   API,
   axios,
   width,
   height,
   formatDate, transferTime, transferPlayerTime, formatVersion,
-  ratio
+  ratio,
+  checkSource
 }
