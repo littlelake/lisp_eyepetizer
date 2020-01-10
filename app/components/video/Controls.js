@@ -79,7 +79,7 @@ class Controls extends Component {
     return (
       <TouchableWithoutFeedback onPress={() => this.hideControls()}>
         <ControlBar
-          // toggleFS={() => this.props.toggleFS()}
+          toggleFS={() => this.props.toggleFS()}
           toggleMute={() => this.props.toggleMute()}
           togglePlay={() => this.props.togglePlay()}
           muted={muted}
@@ -105,7 +105,7 @@ class Controls extends Component {
 }
 
 Controls.propTypes = {
-  // toggleFS: PropTypes.func.isRequired,
+  toggleFS: PropTypes.func.isRequired,
   toggleMute: PropTypes.func.isRequired,
   togglePlay: PropTypes.func.isRequired,
   onSeek: PropTypes.func.isRequired,

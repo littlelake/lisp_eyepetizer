@@ -33,7 +33,7 @@ const ControlBar = (props) => {
         <TouchableOpacity
           activeOpacity={0.6}
           style={{ width: 22, height: 22 }}
-          // onPress={() => props.toggleFS()}
+          onPress={() => props.toggleFS()}
         >
           <Image {...checkSource(require('../../imgs/video/unfold.png'))} style={{ width: 22, height: 22 }} />
         </TouchableOpacity>
@@ -43,7 +43,7 @@ const ControlBar = (props) => {
 }
 
 ControlBar.propTypes = {
-  // toggleFS: PropTypes.func.isRequired,
+  toggleFS: PropTypes.func.isRequired,
   onSeek: PropTypes.func.isRequired,
   onSeekRelease: PropTypes.func.isRequired,
   fullscreen: PropTypes.bool.isRequired,

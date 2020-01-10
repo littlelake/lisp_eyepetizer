@@ -24,7 +24,6 @@ class SelectedPage extends Component {
   }
 
   _renderItem = (item) => {
-    console.log(item)
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={() => this.handleVideo(item)} activeOpacity={0.6}>
@@ -53,7 +52,6 @@ class SelectedPage extends Component {
     axios.post(API.videoList, { }).then(res => {
       const data = res.data
       if (data.code === 200) {
-        console.log(data.result)
         this.setState({ videoList: data.result })
       }
     }).catch(err => {
