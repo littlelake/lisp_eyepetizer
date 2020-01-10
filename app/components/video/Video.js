@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Animated, View, StyleSheet, StatusBar, Alert, Dimensions } from 'react-native'
+import { Animated, StyleSheet, StatusBar, Alert, Dimensions, BackHandler } from 'react-native'
 import VideoPlayer from 'react-native-video'
 import KeepAwake from 'react-native-keep-awake'
 import Orientation from 'react-native-orientation'
@@ -45,10 +45,12 @@ class Video extends Component {
 
   componentDidMount () {
     Dimensions.addEventListener('change', this.onRotated)
+    BackHandler.addEventListener('hardwareBackPress', this.BackHandler)
   }
 
   componentWillUnmount () {
     Dimensions.removeEventListener('change', this.onRotated)
+    BackHandler.removeEventListener('hardwareBackPress', this.BackHandler)
   }
 
   render () {
@@ -143,7 +145,24 @@ class Video extends Component {
     })
   }
 
+  BackHandler = () => {
+    if (this.state.fullScreen) {
+      this.setState({ fullScreen: false }, () => {
+        this.animToInline()
+        this.props.onFullScreen && this.props.onFullScreen(this.state.fullScreen)
+        if (this.props.fullScreenOnly && !this.state.paused) this.togglePlay()
+        Orientation.lockToPortrait()
+        setTimeout(() => {
+          if (!this.props.lockPortraitOnFsExit) Orientation.unlockAllOrientations()
+        }, 1500)
+      })
+      return true
+    }
+    return false
+  }
+
   progress = (time) => {
+    console.log('progress')
     const { currentTime } = time
     const progress = currentTime / this.state.duration
     if (!this.state.seeking) {
@@ -211,14 +230,18 @@ class Video extends Component {
           const initialOrient = Orientation.getInitialOrientation()
           const oriHeight = orientation !== initialOrient ? width : height
           this.props.onFullScreen && this.props.onFullScreen(this.state.fullScreen)
-          if (this.props.rotateToFullScreen) Orientation.lockToLandscape()
+          // if (this.props.rotateToFullScreen) Orientation.lockToLandscape()
+          // 强制全屏
+          Orientation.lockToLandscape()
           this.animToFullscreen(oriHeight)
         } else {
           if (this.props.fullScreenOnly) {
             this.setState({ paused: true }, () => this.props.onPlay(!this.state.paused))
           }
           this.props.onFullScreen && this.props.onFullScreen(this.state.fullScreen)
-          if (this.props.rotateToFullScreen) Orientation.lockToPortrait()
+          // if (this.props.rotateToFullScreen) Orientation.lockToPortrait()
+          // 强制竖屏
+          Orientation.lockToPortrait()
           this.animToInline()
           setTimeout(() => {
             if (!this.props.lockPortraitOnFsExit) Orientation.unlockAllOrientations()
@@ -229,6 +252,7 @@ class Video extends Component {
   }
 
   animToFullscreen = (height) => {
+    console.log(height, 'height')
     Animated.parallel([
       Animated.timing(this.animFullscreen, { toValue: height, duration: 200 }),
       Animated.timing(this.animInline, { toValue: height, duration: 200 })
@@ -237,6 +261,7 @@ class Video extends Component {
 
   animToInline (height) {
     const newHeight = height || this.state.inlineHeight
+    console.log(newHeight, 'newHeight')
     Animated.parallel([
       Animated.timing(this.animFullscreen, { toValue: newHeight, duration: 100 }),
       Animated.timing(this.animInline, { toValue: this.state.inlineHeight, duration: 100 })
@@ -307,6 +332,34 @@ class Video extends Component {
       this.player.seek(seconds)
     })
   }
+}
+
+Video.defaultProps = {
+  placeholder: undefined,
+  style: {},
+  error: true,
+  loop: false,
+  autoPlay: false,
+  inlineOnly: false,
+  fullScreenOnly: false,
+  playInBackground: false,
+  playWhenInactive: false,
+  rotateToFullScreen: false,
+  lockPortraitOnFsExit: false,
+  onEnd: () => { },
+  onLoad: () => { },
+  onPlay: () => { },
+  onError: () => { },
+  onProgress: () => { },
+  onMorePress: undefined,
+  onFullScreen: () => { },
+  onTimedMetadata: () => { },
+  volume: 1,
+  lockRatio: undefined,
+  logo: undefined,
+  title: '',
+  theme: defaultTheme,
+  resizeMode: 'contain'
 }
 
 const styles = StyleSheet.create({
