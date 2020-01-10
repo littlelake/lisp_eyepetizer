@@ -76,27 +76,24 @@ class Controls extends Component {
   // 视频控件
   displayControls () {
     const { paused, fullscreen, muted, progress, currentTime, duration, inlineOnly, theme } = this.props
-    const { center, ...controlBar } = theme
     return (
-      <TouchableOpacity activeOpacity={1} onPress={() => this.hideControls()}>
-        <Animated.View style={[styles.container, { opacity: this.animControls }]}>
-          <ControlBar
-            // toggleFS={() => this.props.toggleFS()}
-            toggleMute={() => this.props.toggleMute()}
-            togglePlay={() => this.props.togglePlay()}
-            muted={muted}
-            paused={paused}
-            fullscreen={fullscreen}
-            onSeek={pos => this.onSeek(pos)}
-            onSeekRelease={pos => this.onSeekRelease(pos)}
-            progress={progress}
-            currentTime={currentTime}
-            duration={duration}
-            theme={controlBar}
-            inlineOnly={inlineOnly}
-          />
-        </Animated.View>
-      </TouchableOpacity>
+      <TouchableWithoutFeedback onPress={() => this.hideControls()}>
+        <ControlBar
+          // toggleFS={() => this.props.toggleFS()}
+          toggleMute={() => this.props.toggleMute()}
+          togglePlay={() => this.props.togglePlay()}
+          muted={muted}
+          paused={paused}
+          fullscreen={fullscreen}
+          onSeek={pos => this.onSeek(pos)}
+          onSeekRelease={pos => this.onSeekRelease(pos)}
+          progress={progress}
+          currentTime={currentTime}
+          duration={duration}
+          theme={theme}
+          inlineOnly={inlineOnly}
+        />
+      </TouchableWithoutFeedback>
     )
   }
 

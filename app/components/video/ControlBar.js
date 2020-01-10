@@ -11,34 +11,32 @@ const ControlBar = (props) => {
   const { currentTime, duration, theme, onSeek, onSeekRelease, progress } = props
   return (
     <LinearGradient colors={['rgba(0,0,0,0)', 'rgba(0,0,0,0.75)']} style={styles.container}>
+      <TouchableOpacity
+        activeOpacity={0.6}
+        style={{ width: 22, height: 22 }}
+        onPress={() => props.togglePlay()}
+      >
+        {
+          props.paused ? <Image {...checkSource(require('../../imgs/video/audio_play.png'))} style={{ width: 22, height: 22 }} />
+            : <Image {...checkSource(require('../../imgs/video/suspend.png'))} style={{ width: 22, height: 22 }} />
+        }
+      </TouchableOpacity>
+      <Time time={currentTime} theme={theme.timeColor} />
+      <Scrubber
+        onSeek={pos => onSeek(pos)}
+        onSeekRelease={pos => onSeekRelease(pos)}
+        progress={progress}
+        theme={{ scrubberThumb: theme.scrubberThumb, scrubberBar: theme.scrubberBar }}
+      />
+      <Time time={duration} theme={theme.timeColor} />
       <View style={styles.btnContainer}>
         <TouchableOpacity
           activeOpacity={0.6}
           style={{ width: 22, height: 22 }}
-          onPress={() => props.togglePlay()}
+          // onPress={() => props.toggleFS()}
         >
-          {
-            props.paused ? <Image {...checkSource(require('../../imgs/video/audio_play.png'))} style={{ width: 22, height: 22 }} />
-              : <Image {...checkSource(require('../../imgs/video/suspend.png'))} style={{ width: 22, height: 22 }} />
-          }
+          <Image {...checkSource(require('../../imgs/video/unfold.png'))} style={{ width: 22, height: 22 }} />
         </TouchableOpacity>
-        <Time time={currentTime} theme={theme.seconds} />
-        <Scrubber
-          onSeek={pos => onSeek(pos)}
-          onSeekRelease={pos => onSeekRelease(pos)}
-          progress={progress}
-          theme={{ scrubberThumb: theme.scrubberThumb, scrubberBar: theme.scrubberBar }}
-        />
-        <Time time={duration} theme={theme.duration} />
-        <View style={styles.btnContainer}>
-          <TouchableOpacity
-            activeOpacity={0.6}
-            style={{ width: 22, height: 22 }}
-            // onPress={() => props.toggleFS()}
-          >
-            <Image {...checkSource(require('../../imgs/video/unfold.png'))} style={{ width: 22, height: 22 }} />
-          </TouchableOpacity>
-        </View>
       </View>
     </LinearGradient>
   )
@@ -60,9 +58,11 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignSelf: 'stretch',
+    alignItems: 'center',
     justifyContent: 'flex-end',
     paddingLeft: 10,
     paddingRight: 15,
+    width: '100%',
     height: 45
   },
   fullContainer: {

@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-import { Text, Animated, View, StyleSheet, StatusBar, Alert } from 'react-native'
+import { Animated, View, StyleSheet, StatusBar, Alert } from 'react-native'
 import VideoPlayer from 'react-native-video'
 import KeepAwake from 'react-native-keep-awake'
 import Orientation from 'react-native-orientation'
 
-import { checkSource, platform, width, height } from '../../utils'
+import { checkSource, platform, width } from '../../utils'
 import Controls from './Controls'
 
 const defaultTheme = {
   title: '视频测试',
-  more: '#FFF',
+  more: '#fff',
   center: true,
   fullscreen: false,
   volume: 1,
@@ -18,7 +18,8 @@ const defaultTheme = {
   seconds: 0,
   duration: 0,
   progress: 0,
-  loading: false
+  loading: false,
+  timeColor: '#fff'
 }
 
 class Video extends Component {
@@ -113,7 +114,7 @@ class Video extends Component {
     // this.props.onLoad(data)
     const inlineHeight = 200
     this.setState({
-      paused: !this.props.autoPlay,
+      paused: false,
       loading: false,
       inlineHeight,
       duration: data.duration
@@ -138,7 +139,7 @@ class Video extends Component {
     const progress = currentTime / this.state.duration
     if (!this.state.seeking) {
       this.setState({ progress, currentTime }, () => {
-        this.props.onProgress(time)
+        this.props.onProgress && this.props.onProgress(time)
       })
     }
   }
@@ -195,6 +196,7 @@ class Video extends Component {
 
   // 播放/暂停
   togglePlay = () => {
+    console.log('xxxx')
     this.setState({ paused: !this.state.paused }, () => {
       this.props.onPlay(!this.state.paused)
       Orientation.getOrientation((e, orientation) => {
