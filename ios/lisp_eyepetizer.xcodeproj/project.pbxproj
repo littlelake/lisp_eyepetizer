@@ -19,7 +19,6 @@
 		2DCD954D1E0B4F2C00145EB5 /* lisp_eyepetizerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* lisp_eyepetizerTests.m */; };
 		9549BC7804767BB61F3916FC /* libPods-lisp_eyepetizerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBECD3368A195C12EBF001A /* libPods-lisp_eyepetizerTests.a */; };
 		9BAABAC2650871772531150E /* libPods-lisp_eyepetizer-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B244D598E3C3D5DE004DB1F9 /* libPods-lisp_eyepetizer-tvOS.a */; };
-		C55E348A23CB65A4002DAA0A /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C55E348723CB654E002DAA0A /* libCodePush.a */; };
 		C5C2CC8523C47D7E002ED9A7 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C2CC8423C47D7D002ED9A7 /* libz.tbd */; };
 		C5C2CC8723C47D89002ED9A7 /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C2CC8623C47D89002ED9A7 /* libc++.1.tbd */; };
 		C5C2CC8923C47D95002ED9A7 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C2CC8823C47D95002ED9A7 /* libresolv.tbd */; };
@@ -42,20 +41,6 @@
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
 			remoteInfo = "lisp_eyepetizer-tvOS";
 		};
-		C55E348623CB654E002DAA0A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C55E348123CB654E002DAA0A /* CodePush.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = CodePush;
-		};
-		C55E348823CB654E002DAA0A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C55E348123CB654E002DAA0A /* CodePush.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F886647B1F4ADB500036D01B;
-			remoteInfo = "CodePush-tvOS";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +48,7 @@
 		00E356EE1AD99517003FC87E /* lisp_eyepetizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = lisp_eyepetizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* lisp_eyepetizerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = lisp_eyepetizerTests.m; sourceTree = "<group>"; };
+		064D6AB784152E12481B832C /* Pods-lisp_eyepetizer-tvOSTests.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lisp_eyepetizer-tvOSTests.staging.xcconfig"; path = "Target Support Files/Pods-lisp_eyepetizer-tvOSTests/Pods-lisp_eyepetizer-tvOSTests.staging.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* lisp_eyepetizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lisp_eyepetizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = lisp_eyepetizer/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = lisp_eyepetizer/AppDelegate.m; sourceTree = "<group>"; };
@@ -76,17 +62,19 @@
 		344BDEDED653C9B3E5D6BDE6 /* Pods-lisp_eyepetizer-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lisp_eyepetizer-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-lisp_eyepetizer-tvOS/Pods-lisp_eyepetizer-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		40AD93A4541247767895D879 /* libPods-lisp_eyepetizer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-lisp_eyepetizer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FBECD3368A195C12EBF001A /* libPods-lisp_eyepetizerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-lisp_eyepetizerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		51C41D36F6CC8CB7B6BF23BB /* Pods-lisp_eyepetizerTests.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lisp_eyepetizerTests.staging.xcconfig"; path = "Target Support Files/Pods-lisp_eyepetizerTests/Pods-lisp_eyepetizerTests.staging.xcconfig"; sourceTree = "<group>"; };
 		59DDC64CF40B11B1A1E19B7D /* Pods-lisp_eyepetizer-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lisp_eyepetizer-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-lisp_eyepetizer-tvOSTests/Pods-lisp_eyepetizer-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		680F3440B37DCCDF668385A4 /* libPods-lisp_eyepetizer-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-lisp_eyepetizer-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		903EC121BD6DC7DC0A5D3606 /* Pods-lisp_eyepetizer.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lisp_eyepetizer.staging.xcconfig"; path = "Target Support Files/Pods-lisp_eyepetizer/Pods-lisp_eyepetizer.staging.xcconfig"; sourceTree = "<group>"; };
 		90D902E7E4C33690D73F095F /* Pods-lisp_eyepetizerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lisp_eyepetizerTests.debug.xcconfig"; path = "Target Support Files/Pods-lisp_eyepetizerTests/Pods-lisp_eyepetizerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		935733B878F87FA61C476556 /* Pods-lisp_eyepetizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lisp_eyepetizer.debug.xcconfig"; path = "Target Support Files/Pods-lisp_eyepetizer/Pods-lisp_eyepetizer.debug.xcconfig"; sourceTree = "<group>"; };
 		974B4BF9C17F26E2D4BE368A /* Pods-lisp_eyepetizerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lisp_eyepetizerTests.release.xcconfig"; path = "Target Support Files/Pods-lisp_eyepetizerTests/Pods-lisp_eyepetizerTests.release.xcconfig"; sourceTree = "<group>"; };
 		B244D598E3C3D5DE004DB1F9 /* libPods-lisp_eyepetizer-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-lisp_eyepetizer-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C55E348123CB654E002DAA0A /* CodePush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		C5C2CC8423C47D7D002ED9A7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		C5C2CC8623C47D89002ED9A7 /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
 		C5C2CC8823C47D95002ED9A7 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		C5C2CC8A23C47DA6002ED9A7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		D661D01B8004E0B47E8909AE /* Pods-lisp_eyepetizer-tvOS.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lisp_eyepetizer-tvOS.staging.xcconfig"; path = "Target Support Files/Pods-lisp_eyepetizer-tvOS/Pods-lisp_eyepetizer-tvOS.staging.xcconfig"; sourceTree = "<group>"; };
 		E2A6B6BFD43D31FD1B0D030E /* Pods-lisp_eyepetizer-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lisp_eyepetizer-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-lisp_eyepetizer-tvOSTests/Pods-lisp_eyepetizer-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E7B047132D2095AA0FAFB83C /* Pods-lisp_eyepetizer-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lisp_eyepetizer-tvOS.release.xcconfig"; path = "Target Support Files/Pods-lisp_eyepetizer-tvOS/Pods-lisp_eyepetizer-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -107,7 +95,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5C2CC8523C47D7E002ED9A7 /* libz.tbd in Frameworks */,
-				C55E348A23CB65A4002DAA0A /* libCodePush.a in Frameworks */,
 				C5C2CC8B23C47DA6002ED9A7 /* libsqlite3.tbd in Frameworks */,
 				C5C2CC8923C47D95002ED9A7 /* libresolv.tbd in Frameworks */,
 				C5C2CC8723C47D89002ED9A7 /* libc++.1.tbd in Frameworks */,
@@ -185,7 +172,6 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				C55E348123CB654E002DAA0A /* CodePush.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -216,15 +202,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C55E348223CB654E002DAA0A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C55E348723CB654E002DAA0A /* libCodePush.a */,
-				C55E348923CB654E002DAA0A /* libCodePush.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		C6FDE70B2BE6ECF33361F8E4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +213,10 @@
 				59DDC64CF40B11B1A1E19B7D /* Pods-lisp_eyepetizer-tvOSTests.release.xcconfig */,
 				90D902E7E4C33690D73F095F /* Pods-lisp_eyepetizerTests.debug.xcconfig */,
 				974B4BF9C17F26E2D4BE368A /* Pods-lisp_eyepetizerTests.release.xcconfig */,
+				903EC121BD6DC7DC0A5D3606 /* Pods-lisp_eyepetizer.staging.xcconfig */,
+				D661D01B8004E0B47E8909AE /* Pods-lisp_eyepetizer-tvOS.staging.xcconfig */,
+				064D6AB784152E12481B832C /* Pods-lisp_eyepetizer-tvOSTests.staging.xcconfig */,
+				51C41D36F6CC8CB7B6BF23BB /* Pods-lisp_eyepetizerTests.staging.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -358,12 +339,6 @@
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = C55E348223CB654E002DAA0A /* Products */;
-					ProjectRef = C55E348123CB654E002DAA0A /* CodePush.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* lisp_eyepetizer */,
@@ -373,23 +348,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		C55E348723CB654E002DAA0A /* libCodePush.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libCodePush.a;
-			remoteRef = C55E348623CB654E002DAA0A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C55E348923CB654E002DAA0A /* libCodePush.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libCodePush.a;
-			remoteRef = C55E348823CB654E002DAA0A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		00E356EC1AD99517003FC87E /* Resources */ = {
@@ -743,7 +701,7 @@
 			baseConfigurationReference = 935733B878F87FA61C476556 /* Pods-lisp_eyepetizer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODEPUSH_KEY = "";
+				CODEPUSH_KEY = "OtFBbtYfgT-lSiAhWVx_-0OxWtYtLs_xmEyQX";
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				HEADER_SEARCH_PATHS = (
@@ -1092,7 +1050,7 @@
 		};
 		C55E347D23CB5F14002DAA0A /* Staging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D9345B28D01F266F1FA5FE3 /* Pods-lisp_eyepetizer.release.xcconfig */;
+			baseConfigurationReference = 903EC121BD6DC7DC0A5D3606 /* Pods-lisp_eyepetizer.staging.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODEPUSH_KEY = "OtFBbtYfgT-lSiAhWVx_-0OxWtYtLs_xmEyQX";
@@ -1140,7 +1098,7 @@
 		};
 		C55E347E23CB5F14002DAA0A /* Staging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 974B4BF9C17F26E2D4BE368A /* Pods-lisp_eyepetizerTests.release.xcconfig */;
+			baseConfigurationReference = 51C41D36F6CC8CB7B6BF23BB /* Pods-lisp_eyepetizerTests.staging.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -1161,7 +1119,7 @@
 		};
 		C55E347F23CB5F14002DAA0A /* Staging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E7B047132D2095AA0FAFB83C /* Pods-lisp_eyepetizer-tvOS.release.xcconfig */;
+			baseConfigurationReference = D661D01B8004E0B47E8909AE /* Pods-lisp_eyepetizer-tvOS.staging.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1190,7 +1148,7 @@
 		};
 		C55E348023CB5F14002DAA0A /* Staging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59DDC64CF40B11B1A1E19B7D /* Pods-lisp_eyepetizer-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 064D6AB784152E12481B832C /* Pods-lisp_eyepetizer-tvOSTests.staging.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;

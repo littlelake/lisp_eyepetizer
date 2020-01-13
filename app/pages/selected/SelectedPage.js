@@ -27,7 +27,7 @@ class SelectedPage extends Component {
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={() => this.handleVideo(item)} activeOpacity={0.6}>
-          <ImageBackground style={styles.video_img} source={{ uri: item.item.data.content.data.cover.feed }}>
+          <ImageBackground style={styles.video_img} source={{ uri: item.item.data.content.data.cover.feed }} resizeMode='stretch'>
             <Text style={styles.time}>{formatDate(item.item.data.content.data.releaseTime, 'mm:ss')}</Text>
           </ImageBackground>
         </TouchableOpacity>
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5F6F8',
     borderRadius: 8,
     overflow: 'hidden',
-    resizeMode: 'cover'
+    resizeMode: 'contain'
   },
   time: {
     position: 'absolute',

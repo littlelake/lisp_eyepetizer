@@ -22,7 +22,7 @@ code-push release-react lisp_eyepetizer android  --t 1.0.0 --dev false --d Produ
 
 ### IOS 热更新 测试
 ```
-code-push release-react lisp_eyepetizer ios --t 1.0.0 --dev false --d Staging --des "优化" --m true
+code-push release-react lisp_eyepetizer ios --t 1.0.1 --dev false --d Staging --des "优化" --m true
 ```
 
 ### IOS 热更新 线上
