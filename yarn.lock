@@ -5572,6 +5572,11 @@ react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6, react-is
   resolved "https://registry.npm.taobao.org/react-is/download/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"
   integrity sha1-LMD+D7p0LZf9UnxCoTvsTusGJBw=
 
+react-lifecycles-compat@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.npm.taobao.org/react-lifecycles-compat/download/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
+  integrity sha1-TxonOv38jzSIqMUWv9p4+HI1I2I=
+
 react-native-code-push@^6.0.0:
   version "6.0.0"
   resolved "https://registry.npm.taobao.org/react-native-code-push/download/react-native-code-push-6.0.0.tgz#4b91159b3ed9495fd8cbf39b07a93e921f810420"
@@ -5672,6 +5677,11 @@ react-native-tab-navigator@^0.3.4:
     immutable "^3.8.1"
     prop-types "^15.5.10"
 
+react-native-tab-view@^2.11.0:
+  version "2.11.0"
+  resolved "https://registry.npm.taobao.org/react-native-tab-view/download/react-native-tab-view-2.11.0.tgz?cache=0&sync_timestamp=1574248977203&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-native-tab-view%2Fdownload%2Freact-native-tab-view-2.11.0.tgz#2e57d1f617ccc88c7f452708804f3409f880b700"
+  integrity sha1-LlfR9hfMyIx/RScIgE80CfiAtwA=
+
 react-native-vector-icons@^6.6.0:
   version "6.6.0"
   resolved "https://registry.npm.taobao.org/react-native-vector-icons/download/react-native-vector-icons-6.6.0.tgz#66cf004918eb05d90778d64bd42077c1800d481b"
@@ -5725,17 +5735,22 @@ react-native@0.61.5:
     stacktrace-parser "^0.1.3"
     whatwg-fetch "^3.0.0"
 
-react-navigation-material-bottom-tabs@^2.1.5:
-  version "2.1.5"
-  resolved "https://registry.npm.taobao.org/react-navigation-material-bottom-tabs/download/react-navigation-material-bottom-tabs-2.1.5.tgz#ccf0571d042245649093b979e308995e3681dbcb"
-  integrity sha1-zPBXHQQiRWSQk7l54wiZXjaB28s=
-
 react-navigation-stack@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npm.taobao.org/react-navigation-stack/download/react-navigation-stack-2.0.1.tgz#994401ab106c54bb20ffd1199d01e51b72099f87"
   integrity sha1-mUQBqxBsVLsg/9EZnQHlG3IJn4c=
   dependencies:
     color "^3.1.2"
+
+react-navigation-tabs@^2.7.0:
+  version "2.7.0"
+  resolved "https://registry.npm.taobao.org/react-navigation-tabs/download/react-navigation-tabs-2.7.0.tgz#68505910164a51c44710f835def8fe29360f346a"
+  integrity sha1-aFBZEBZKUcRHEPg13vj+KTYPNGo=
+  dependencies:
+    hoist-non-react-statics "^3.3.0"
+    react-lifecycles-compat "^3.0.4"
+    react-native-safe-area-view "^0.14.6"
+    react-native-tab-view "^2.11.0"
 
 react-navigation@^4.0.10:
   version "4.0.10"
