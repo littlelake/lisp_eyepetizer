@@ -97,7 +97,7 @@ class Controls extends Component {
                   <TouchableOpacity style={styles.playContainer} onPress={() => this.togglePlay()}>
                     <Image {...checkSource(paused ? require('../../imgs/video/full_play.png') : require('../../imgs/video/full_pause.png'))} style={{ width: 40, height: 40, opacity: 0.9 }} />
                   </TouchableOpacity>
-                </View> : null
+                  </View> : null
             }
           </Animated.View>
           <ControlBar

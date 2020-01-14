@@ -3,6 +3,7 @@ import { Alert } from 'react-native'
 import Router from './app/routes/routes'
 
 import CodePush from 'react-native-code-push'
+import SplashScreen from 'react-native-splash-screen'
 
 const codePushOptions = {
   // 设置检查更新的频率
@@ -78,6 +79,9 @@ class App extends React.Component {
   }
 
   async componentWillMount () {
+    setTimeout(() => {
+      SplashScreen.hide()
+    }, 3000)
     // CodePush.disallowRestart() // 禁止重启
     // this.update() // 开始检查更新
   }
