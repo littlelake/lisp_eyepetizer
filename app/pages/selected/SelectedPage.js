@@ -18,6 +18,7 @@ class SelectedPage extends Component {
         <FlatList
           data={videoList}
           renderItem={(item) => this._renderItem(item)}
+          keyExtractor={item => item.id.toString()}
         />
       </View>
     )
@@ -52,6 +53,7 @@ class SelectedPage extends Component {
     axios.post(API.videoList, { }).then(res => {
       const data = res.data
       if (data.code === 200) {
+        console.log(data.result)
         this.setState({ videoList: data.result })
       }
     }).catch(err => {

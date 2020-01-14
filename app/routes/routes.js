@@ -4,7 +4,6 @@ import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
 
-import { MainPage } from '../pages/home/index'
 import { VideoDetailPage, VideoPlayPage, SelectedPage } from '../pages/selected'
 import { Login, ProfilePage, LoginPrev } from '../pages/profile'
 import { FollowPage } from '../pages/follow'
@@ -105,10 +104,18 @@ const TabStack = createBottomTabNavigator(
 const AppNavigator = createStackNavigator(
   {
     MainPage: {
-      screen: TabStack
+      screen: TabStack,
+      navigationOptions: () => ({
+        header: null
+      })
     },
     VideoDetailPage,
-    VideoPlayPage,
+    VideoPlayPage: {
+      screen: VideoPlayPage,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
     Login: {
       screen: Login,
       navigationOptions: {
