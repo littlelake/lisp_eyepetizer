@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, TouchableWithoutFeedback, Image, TouchableOpacity, ScrollView } from 'react-native'
 
+import { observer, inject } from 'mobx-react'
 import { ratio } from '../../utils'
 
 /**
  * 个人中心，头像，昵称部分
  */
-class Head extends Component {
+@inject('themeStore')
+@observer class Head extends Component {
   render () {
     return (
       <View style={styles.container}>
@@ -88,6 +90,11 @@ class ProfilePage extends Component {
         </ScrollView>
       </View>
     )
+  }
+
+  componentDidMount () {
+    const { themeMode } = this.props.themeStore
+    console.log(themeMode)
   }
 
   _onItemClick = (tag) => {

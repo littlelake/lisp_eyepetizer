@@ -53,7 +53,6 @@ class SelectedPage extends Component {
     axios.post(API.videoList, { }).then(res => {
       const data = res.data
       if (data.code === 200) {
-        console.log(data.result)
         this.setState({ videoList: data.result })
       }
     }).catch(err => {

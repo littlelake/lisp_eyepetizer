@@ -4,6 +4,9 @@ import Router from './app/routes/routes'
 
 import CodePush from 'react-native-code-push'
 import SplashScreen from 'react-native-splash-screen'
+import { Provider } from 'mobx-react'
+
+import store from './app/store'
 
 const codePushOptions = {
   // 设置检查更新的频率
@@ -18,7 +21,9 @@ const codePushOptions = {
 class App extends React.Component {
   render () {
     return (
-      <Router />
+      <Provider {...store}>
+        <Router />
+      </Provider>
     )
   }
 
