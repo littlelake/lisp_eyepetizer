@@ -11,10 +11,10 @@ class Head extends Component {
   render () {
     return (
       <View style={styles.container}>
-        <View style={{ alignItems: 'flex-end' }}>
-          <TouchableWithoutFeedback onPress={this.props.handleSettings}>
-            <Image source={require('../../imgs/ic_menu_more.png')} style={styles.btn_setting} />
-          </TouchableWithoutFeedback>
+        <View style={{ alignItems: 'flex-end', marginTop: 15, marginRight: 15 }}>
+          <TouchableOpacity onPress={this.props.handleSettings} activeOpacity={0.6}>
+            <Image source={require('../../imgs/settings.png')} style={styles.btn_setting} />
+          </TouchableOpacity>
         </View>
         <View style={styles.container_avater}>
           <TouchableWithoutFeedback onPress={this.props.handleAvatar}>
@@ -104,7 +104,10 @@ class ProfilePage extends Component {
   }
 
   // 设置
-  handleSettings = () => { console.log('settings') }
+  handleSettings = () => {
+    const { navigate } = this.props.navigation
+    navigate('Settings')
+  }
 
   // 头像
   handleAvatar = () => { console.log('avatar') }
@@ -145,8 +148,8 @@ const styles = StyleSheet.create({
     marginBottom: 32
   },
   btn_setting: {
-    width: 40,
-    height: 40
+    width: 22,
+    height: 22
   },
   avatar: {
     marginBottom: 16,

@@ -5,7 +5,7 @@ import { createStackNavigator } from 'react-navigation-stack'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
 
 import { VideoDetailPage, VideoPlayPage, SelectedPage } from '../pages/selected'
-import { Login, ProfilePage, LoginPrev } from '../pages/profile'
+import { Login, ProfilePage, LoginPrev, Settings, AboutUs } from '../pages/profile'
 import { FollowPage } from '../pages/follow'
 import { ExplorePage } from '../pages/explore'
 
@@ -123,7 +123,19 @@ const AppNavigator = createStackNavigator(
       }
     },
     ProfilePage,
-    LoginPrev
+    LoginPrev,
+    Settings: {
+      screen: Settings,
+      navigationOptions: {
+        title: '设置'
+      }
+    },
+    AboutUs: {
+      screen: AboutUs,
+      navigationOptions: {
+        title: '关于我们'
+      }
+    }
   },
   {
     initialRouteName: 'MainPage'
