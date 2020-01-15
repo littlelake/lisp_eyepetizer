@@ -10,6 +10,7 @@ import { FollowPage } from '../pages/follow'
 import { ExplorePage } from '../pages/explore'
 
 import { ratio, checkSource } from '../utils'
+import themeStore from '../store/themeStore'
 
 // import Test from '../pages/Test'
 
@@ -22,11 +23,11 @@ const TabStack = createBottomTabNavigator(
         tabBarIcon: ({ focused }) => {
           if (focused) {
             return (
-              <Image {...checkSource(require('../imgs/ic_tab_strip_icon_feed_selected.png'))} style={{ width: 35, height: 35, resizeMode: 'contain' }} />
+              <Image {...checkSource(require('../imgs/ic_tab_strip_icon_feed_selected.png'))} style={{ width: 35, height: 35, resizeMode: 'contain' }} tintColor={themeStore.themeMode.arrowColor} />
             )
           }
           return (
-            <Image {...checkSource(require('../imgs/ic_tab_strip_icon_feed.png'))} style={{ width: 35, height: 35, resizeMode: 'contain' }} />
+            <Image {...checkSource(require('../imgs/ic_tab_strip_icon_feed.png'))} style={{ width: 35, height: 35, resizeMode: 'contain' }} tintColor={themeStore.themeMode.arrowColor} />
           )
         }
       })
@@ -38,11 +39,11 @@ const TabStack = createBottomTabNavigator(
         tabBarIcon: ({ focused }) => {
           if (focused) {
             return (
-              <Image {...checkSource(require('../imgs/ic_tab_strip_icon_category_selected.png'))} style={{ width: 35, height: 35, resizeMode: 'contain' }} />
+              <Image {...checkSource(require('../imgs/ic_tab_strip_icon_category_selected.png'))} style={{ width: 35, height: 35, resizeMode: 'contain' }} tintColor={themeStore.themeMode.arrowColor} />
             )
           }
           return (
-            <Image {...checkSource(require('../imgs/ic_tab_strip_icon_category.png'))} style={{ width: 35, height: 35, resizeMode: 'contain' }} />
+            <Image {...checkSource(require('../imgs/ic_tab_strip_icon_category.png'))} style={{ width: 35, height: 35, resizeMode: 'contain' }} tintColor={themeStore.themeMode.arrowColor} />
           )
         }
       })
@@ -54,11 +55,11 @@ const TabStack = createBottomTabNavigator(
         tabBarIcon: ({ focused }) => {
           if (focused) {
             return (
-              <Image {...checkSource(require('../imgs/ic_tab_strip_icon_follow_selected.png'))} style={{ width: 35, height: 35, resizeMode: 'contain' }} />
+              <Image {...checkSource(require('../imgs/ic_tab_strip_icon_follow_selected.png'))} style={{ width: 35, height: 35, resizeMode: 'contain' }} tintColor={themeStore.themeMode.arrowColor} />
             )
           }
           return (
-            <Image {...checkSource(require('../imgs/ic_tab_strip_icon_follow.png'))} style={{ width: 35, height: 35, resizeMode: 'contain' }} />
+            <Image {...checkSource(require('../imgs/ic_tab_strip_icon_follow.png'))} style={{ width: 35, height: 35, resizeMode: 'contain' }} tintColor={themeStore.themeMode.arrowColor} />
           )
         }
       })
@@ -70,11 +71,11 @@ const TabStack = createBottomTabNavigator(
         tabBarIcon: ({ focused }) => {
           if (focused) {
             return (
-              <Image {...checkSource(require('../imgs/ic_tab_strip_icon_profile_selected.png'))} style={{ width: 35, height: 35, resizeMode: 'contain' }} />
+              <Image {...checkSource(require('../imgs/ic_tab_strip_icon_profile_selected.png'))} style={{ width: 35, height: 35, resizeMode: 'contain' }} tintColor={themeStore.themeMode.arrowColor} />
             )
           }
           return (
-            <Image {...checkSource(require('../imgs/ic_tab_strip_icon_profile.png'))} style={{ width: 35, height: 35, resizeMode: 'contain' }} />
+            <Image {...checkSource(require('../imgs/ic_tab_strip_icon_profile.png'))} style={{ width: 35, height: 35, resizeMode: 'contain' }} tintColor={themeStore.themeMode.arrowColor} />
           )
         }
       })
@@ -91,7 +92,7 @@ const TabStack = createBottomTabNavigator(
       },
       style: {
         height: 50,
-        backgroundColor: '#fff',
+        backgroundColor: themeStore.themeMode.pageBackgroundColor,
         paddingBottom: 3,
         paddingTop: 0,
         borderTopWidth: 0.5 / ratio,

@@ -10,9 +10,10 @@ class Store {
     mainThemeColor: '#333',
     pageBackgroundColor: '#f4f4f4',
     segmentColor: '#ccc',
-    titleColor: '#000',
+    titleColor: '#333',
     subTitleColor: '#aaa',
-    rowItemBackgroundColor: '#fff'
+    rowItemBackgroundColor: '#fff',
+    arrowColor: '#999'
   }
 
   @observable nightMode = { // 夜间模式
@@ -21,11 +22,17 @@ class Store {
     segmentColor: 'rgb(54,54,54)',
     titleColor: 'rgb(177,177,177)',
     subTitleColor: 'rgb(130,130,130)',
-    rowItemBackgroundColor: 'rgb(63,63,63)'
+    rowItemBackgroundColor: 'rgb(63,63,63)',
+    arrowColor: 'rgb(177,177,177)'
   }
 
   @computed get themeMode () {
     return this.isNightMode ? this.nightMode : this.dayMode
+  }
+
+  @action.bound
+  setValue (key, val) {
+    this[key] = val
   }
 }
 

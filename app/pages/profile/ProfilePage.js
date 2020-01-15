@@ -7,8 +7,11 @@ import { ratio } from '../../utils'
 /**
  * 个人中心，头像，昵称部分
  */
+@inject('themeStore')
+@observer
 class Head extends Component {
   render () {
+    const { themeMode } = this.props.themeStore
     return (
       <View style={styles.container}>
         <View style={{ alignItems: 'flex-end', marginTop: 15, marginRight: 15 }}>

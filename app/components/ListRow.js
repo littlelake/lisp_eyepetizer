@@ -1,8 +1,11 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
+import { inject, observer } from 'mobx-react'
 
-export default class ListRow extends React.PureComponent {
+@inject('themeStore')
+@observer
+class ListRow extends React.PureComponent {
   constructor (props) {
     super(props)
   }
@@ -26,12 +29,13 @@ export default class ListRow extends React.PureComponent {
 
   render () {
     const { activeOpacity, onPress, height, paddingHorizontal, title, desc, rightArrow } = this.props
+    const { themeMode } = this.props.themeStore
     return (
       <TouchableOpacity activeOpacity={activeOpacity} onPress={onPress}>
         <View style={[styles.listWrap, { height, paddingHorizontal }]}>
-          <Text style={{ color: '#333', fontSize: 16 }}>{title}</Text>
-          {desc ? <Text style={[styles.rightTxt, { fontSize: 14, color: '#999' }]}>{desc}</Text> : null}
-          {rightArrow ? <Image source={require('../imgs/arrow-right.png')} style={styles.rightArrow} /> : null}
+          <Text style={{ color: themeMode.titleColor, fontSize: 16 }}>{title}</Text>
+          {desc ? <Text style={[styles.rightTxt, { fontSize: 14, color: themeMode.subTitleColor }]}>{desc}</Text> : null}
+          {rightArrow ? <Image source={require('../imgs/arrow-right.png')} style={styles.rightArrow} tintColor={themeMode.arrowColor} /> : null}
           {this.props.children}
         </View>
       </TouchableOpacity>
@@ -55,3 +59,5 @@ const styles = StyleSheet.create({
     width: 70
   }
 })
+
+export default ListRow

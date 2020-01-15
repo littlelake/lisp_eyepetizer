@@ -1,23 +1,20 @@
 import React, { Component } from 'react'
 import { View, Switch } from 'react-native'
+import { inject, observer } from 'mobx-react'
 
 import { ListRow } from '../../components'
 
+@inject('themeStore')
+@observer
 class Settings extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      value: false
-    }
-  }
-
   render () {
-    const { value } = this.state
     const { navigate } = this.props.navigation
+    const { isNightMode, themeMode } = this.props.themeStore
+    console.log(isNightMode, themeMode.pageBackgroundColor, 'isNightMode')
     return (
-      <View style={{ flex: 1, backgroundColor: '#fff' }}>
+      <View style={{ flex: 1, backgroundColor: themeMode.rowItemBackgroundColor }}>
         <ListRow title='夜间模式'>
-          <Switch onTintColor='#ddd' tintColor='#ededed' thumbColor='#03C2A6' onValueChange={this.handleChangeValue} value={value} />
+          <Switch onTintColor='#ddd' tintColor='#ededed' thumbColor='#03C2A6' onValueChange={this.handleChangeValue} value={isNightMode} />
         </ListRow>
         <ListRow title='关于天眼' rightArrow onPress={() => navigate('AboutUs')} />
         <ListRow title='产品版本' rightArrow />
@@ -26,7 +23,8 @@ class Settings extends Component {
   }
 
   handleChangeValue = (value) => {
-    this.setState({ value })
+    const { setValue } = this.props.themeStore
+    setValue('isNightMode', value)
   }
 }
 
