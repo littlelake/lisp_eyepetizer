@@ -13,10 +13,10 @@ class Head extends Component {
   render () {
     const { themeMode } = this.props.themeStore
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, { backgroundColor: themeMode.rowItemBackgroundColor }]}>
         <View style={{ alignItems: 'flex-end', marginTop: 15, marginRight: 15 }}>
           <TouchableOpacity onPress={this.props.handleSettings} activeOpacity={0.6}>
-            <Image source={require('../../imgs/settings.png')} style={styles.btn_setting} />
+            <Image source={require('../../imgs/settings.png')} style={styles.btn_setting} tintColor={themeMode.arrowColor} />
           </TouchableOpacity>
         </View>
         <View style={styles.container_avater}>
@@ -24,20 +24,20 @@ class Head extends Component {
             <Image source={require('../../imgs/avatar.png')} style={styles.avatar} />
           </TouchableWithoutFeedback>
           <TouchableOpacity activeOpacity={0.6}>
-            <Text>Lisp</Text>
+            <Text style={{ color: themeMode.titleColor }}>Lisp</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.container_favority_and_reply}>
           <TouchableWithoutFeedback onPress={this.props.handleFavority}>
             <View style={styles.container_favority}>
               <Image source={require('../../imgs/ic_action_favorites_grey.png')} style={styles.img} />
-              <Text style={styles.tv_favority}>收藏</Text>
+              <Text style={[styles.tv_favority, { color: themeMode.subTitleColor }]}>收藏</Text>
             </View>
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback onPress={this.props.handleReply}>
             <View style={styles.container_reply}>
               <Image source={require('../../imgs/ic_action_reply_grey.png')} style={styles.img} />
-              <Text style={styles.tv_reply}>评论</Text>
+              <Text style={[styles.tv_reply, { color: themeMode.subTitleColor }]}>评论</Text>
             </View>
           </TouchableWithoutFeedback>
         </View>
@@ -51,14 +51,17 @@ const MYITEM = ['MyMessage', 'MyFollow', 'MyCache', 'Feedback', 'Contribute']
 /**
  * 个人中心【我的**】item布局
  */
+@inject('themeStore')
+@observer
 class MyItem extends Component {
   render () {
+    const { themeMode } = this.props.themeStore
     const { tag, title, onPress } = this.props
     return (
       <TouchableOpacity activeOpacity={0.6} style={styles.tv_item} onPress={onPress}>
         <Text
           tag={tag}
-          style={{ fontSize: 17, fontWeight: '400' }}
+          style={{ fontSize: 17, fontWeight: '400', color: themeMode.titleColor }}
         >{title}
         </Text>
       </TouchableOpacity>
@@ -77,8 +80,9 @@ class ProfilePage extends Component {
   }
 
   render () {
+    const { themeMode } = this.props.themeStore
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, backgroundColor: themeMode.pageBackgroundColor }}>
         <Head
           handleSettings={() => this.handleSettings()}
           handleAvatar={() => this.handleAvatar()}

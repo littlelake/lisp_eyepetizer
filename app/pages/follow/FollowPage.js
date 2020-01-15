@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
+import { inject, observer } from 'mobx-react'
 
 import { width, ratio } from '../../utils'
 import FollowJOSN from './FollowJson.json'
 import { BackgroundImage } from '../../components'
 
+@inject('themeStore')
+@observer
 class FollowPage extends Component {
   constructor (props) {
     super(props)
@@ -16,9 +19,10 @@ class FollowPage extends Component {
 
   render () {
     const { data } = this.state
+    const { themeMode } = this.props.themeStore
     return (
       <ScrollView>
-        <View style={styles.container}>
+        <View style={[styles.container, { backgroundColor: themeMode.pageBackgroundColor }]}>
           {
             data && data.length
               ? [0, 1].map((row, idx) => (
@@ -46,21 +50,22 @@ class FollowPage extends Component {
   }
 
   _renderItem = (item, bool) => {
+    const { themeMode } = this.props.themeStore
     return (
       <TouchableOpacity activeOpacity={0.6}>
-        <View style={[styles.item, bool ? { marginLeft: 10 } : '']}>
+        <View style={[styles.item, bool ? { marginLeft: 10 } : '', { backgroundColor: themeMode.rowItemBackgroundColor }]}>
           <BackgroundImage source={item.url} style={styles.image_bg} width={Math.floor((width - 40) / 2)}>
             {item.selected ? <Text style={styles.image_txt}>精选</Text> : null}
           </BackgroundImage>
-          <Text style={styles.title} numberOfLines={2}>{item.title}</Text>
+          <Text style={[styles.title, { color: themeMode.titleColor }]} numberOfLines={2}>{item.title}</Text>
           <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', paddingBottom: 10 }}>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-              <Image source={require('../../imgs/home_page_header_icon.png')} style={styles.icon} />
-              <Text style={styles.txt}>{item.author}</Text>
+              <Image source={require('../../imgs/home_page_header_icon.png')} style={styles.icon} tintColor={themeMode.arrowColor} />
+              <Text style={[styles.txt, { color: themeMode.subTitleColor }]}>{item.author}</Text>
             </View>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-              <Text style={styles.num}>{item.star}</Text>
-              <Image source={require('../../imgs/ic_action_favorites_grey.png')} style={styles.star} />
+              <Text style={[styles.num, { color: themeMode.subTitleColor }]}>{item.star}</Text>
+              <Image source={require('../../imgs/ic_action_favorites_grey.png')} style={styles.star} tintColor={themeMode.arrowColor} />
             </View>
           </View>
         </View>
