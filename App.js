@@ -6,7 +6,7 @@ import CodePush from 'react-native-code-push'
 import SplashScreen from 'react-native-splash-screen'
 import { Provider } from 'mobx-react'
 
-import store from './app/store'
+import stores from './app/store'
 
 const codePushOptions = {
   // 设置检查更新的频率
@@ -21,7 +21,7 @@ const codePushOptions = {
 class App extends React.Component {
   render () {
     return (
-      <Provider {...store}>
+      <Provider {...stores}>
         <Router />
       </Provider>
     )

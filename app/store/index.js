@@ -1,5 +1,5 @@
-import ThemeStore from './themeStore'
+import themeStore from './themeStore'
 
 export default {
-  ThemeStore
+  themeStore
 }

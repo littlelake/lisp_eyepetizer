@@ -7,8 +7,7 @@ import { ratio } from '../../utils'
 /**
  * 个人中心，头像，昵称部分
  */
-@inject('themeStore')
-@observer class Head extends Component {
+class Head extends Component {
   render () {
     return (
       <View style={styles.container}>
@@ -64,6 +63,8 @@ class MyItem extends Component {
   }
 }
 
+@inject('themeStore')
+@observer
 class ProfilePage extends Component {
   constructor (props) {
     super(props)
@@ -93,8 +94,7 @@ class ProfilePage extends Component {
   }
 
   componentDidMount () {
-    const { themeMode } = this.props.themeStore
-    console.log(themeMode)
+    console.log(this.props.themeStore)
   }
 
   _onItemClick = (tag) => {
