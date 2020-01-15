@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, Switch } from 'react-native'
 import { inject, observer } from 'mobx-react'
+import Config from 'react-native-config'
 
 import { ListRow } from '../../components'
 
@@ -17,7 +18,7 @@ class Settings extends Component {
           <Switch onTintColor='#ddd' tintColor='#ededed' thumbColor='#03C2A6' onValueChange={this.handleChangeValue} value={isNightMode} />
         </ListRow>
         <ListRow title='关于天眼' rightArrow onPress={() => navigate('AboutUs')} />
-        <ListRow title='产品版本' rightArrow />
+        <ListRow title='产品版本' desc={Config.APP_VERSION_NAME} />
       </View>
     )
   }
