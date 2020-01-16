@@ -107,7 +107,7 @@ class ProfilePage extends Component {
   _onItemClick = (tag) => {
     // 跳转到登录页面
     const { navigate } = this.props.navigation
-    navigate('Login')
+    navigate(tag)
   }
 
   // 设置

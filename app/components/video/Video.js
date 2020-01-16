@@ -3,6 +3,7 @@ import { Animated, StyleSheet, StatusBar, Alert, Dimensions, BackHandler } from 
 import VideoPlayer from 'react-native-video'
 import KeepAwake from 'react-native-keep-awake'
 import Orientation from 'react-native-orientation'
+import { ImageCacheManager } from 'react-native-cached-image'
 
 import { checkSource, platform, width, height } from '../../utils'
 import Controls from './Controls'
@@ -36,7 +37,8 @@ class Video extends Component {
       seeking: false,
       duration: 0,
       progress: 0,
-      renderError: false
+      renderError: false,
+      cachedVideoURI: ''
     }
 
     this.animInline = new Animated.Value(width * 0.5625)
@@ -46,6 +48,14 @@ class Video extends Component {
   componentDidMount () {
     Dimensions.addEventListener('change', this.onRotated)
     BackHandler.addEventListener('hardwareBackPress', this.BackHandler)
+    ImageCacheManager({})
+      .downloadAndCacheUrl(this.props.url)
+      .then(res => {
+        this.setState({ cachedVideoURI: res })
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   componentWillUnmount () {
@@ -54,8 +64,8 @@ class Video extends Component {
   }
 
   render () {
-    const { url, resizeMode, loop, multiple, volume, playInBackground, playWhenInactive, logo, title, onMorePress, theme, inlineOnly } = this.props
-    const { fullScreen, inlineHeight, paused, muted, loading, progress, currentTime, duration } = this.state
+    const { resizeMode, loop, multiple, volume, playInBackground, playWhenInactive, logo, title, onMorePress, theme, inlineOnly } = this.props
+    const { fullScreen, inlineHeight, paused, muted, loading, progress, currentTime, duration, cachedVideoURI } = this.state
 
     const inline = {
       height: inlineHeight,
@@ -67,11 +77,12 @@ class Video extends Component {
       ...theme
     }
 
+    console.log(cachedVideoURI, 'cachedVideoURI', this.props.url)
     return (
       <Animated.View style={[styles.background, fullScreen ? (styles.fullScreen, { height: this.animFullscreen }) : { height: this.animInline }]}>
         <StatusBar hidden={fullScreen} />
         <VideoPlayer
-          {...checkSource(url)}
+          {...checkSource(cachedVideoURI)}
           paused={paused || false}
           resizeMode={resizeMode || 'contain'}
           repeat={loop || false}
@@ -175,7 +186,7 @@ class Video extends Component {
   onEnd = () => {
     this.props.onEnd()
     const { loop } = this.props
-    if (!loop) this.pause()
+    // if (!loop) this.pause()
     this.onSeekRelease(0)
     this.setState({ currentTime: 0 }, () => {
       if (!loop) this.controls.showControls()

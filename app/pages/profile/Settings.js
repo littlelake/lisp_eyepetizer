@@ -15,7 +15,7 @@ class Settings extends Component {
     return (
       <View style={{ flex: 1, backgroundColor: themeMode.rowItemBackgroundColor }}>
         <ListRow title='夜间模式'>
-          <Switch onTintColor='#ddd' tintColor='#ededed' thumbColor='#03C2A6' onValueChange={this.handleChangeValue} value={isNightMode} />
+          <Switch trackColor='#ededed' thumbColor='#03C2A6' onValueChange={this.handleChangeValue} value={isNightMode} />
         </ListRow>
         <ListRow title='关于天眼' rightArrow onPress={() => navigate('AboutUs')} />
         <ListRow title='产品版本' desc={Config.APP_VERSION_NAME} />

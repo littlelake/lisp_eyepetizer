@@ -42,3 +42,8 @@ code-push release-react lisp_eyepetizer ios --t 1.0.1 --dev false --d Staging --
 ```
 code-push release-react lisp_eyepetizer ios  --t 1.0.0 --dev false --d Production  --des "有新的更新" --m true
 ```
+
+## 注意
+> react-native-cached-image
+
+由于RN0.61中NetInfo和AsyncStorage已经被react-native的中心库移除出来了，所以需要将其替换成```@react-native-community/async-storage```和```@react-native-community/netinfo```，不然会报错

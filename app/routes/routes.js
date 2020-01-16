@@ -5,7 +5,7 @@ import { createStackNavigator } from 'react-navigation-stack'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
 
 import { VideoDetailPage, VideoPlayPage, SelectedPage } from '../pages/selected'
-import { Login, ProfilePage, LoginPrev, Settings, AboutUs } from '../pages/profile'
+import { Login, ProfilePage, LoginPrev, Settings, AboutUs, MyCache } from '../pages/profile'
 import { FollowPage } from '../pages/follow'
 import { ExplorePage } from '../pages/explore'
 
@@ -135,6 +135,12 @@ const AppNavigator = createStackNavigator(
       screen: AboutUs,
       navigationOptions: {
         title: '关于我们'
+      }
+    },
+    MyCache: {
+      screen: MyCache,
+      navigationOptions: {
+        title: '缓存'
       }
     }
   },
