@@ -117,7 +117,7 @@ class ProfilePage extends Component {
   }
 
   // 头像
-  handleAvatar = () => { console.log('avatar') }
+  handleAvatar = () => { this.props.navigation.navigate('Login') }
 
   // 收藏
   handleFavority = () => { console.log('favority') }
