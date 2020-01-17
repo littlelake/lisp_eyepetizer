@@ -12,12 +12,12 @@ import { ExplorePage } from '../pages/explore'
 import { ratio, checkSource } from '../utils'
 import themeStore from '../store/themeStore'
 
-// import Test from '../pages/Test'
+import TestAnimate from '../pages/TestAnimate'
 
 const TabStack = createBottomTabNavigator(
   {
     SelectedPage: {
-      screen: SelectedPage,
+      screen: TestAnimate,
       navigationOptions: () => ({
         tabBarLabel: '精选',
         tabBarIcon: ({ focused }) => {
@@ -141,6 +141,12 @@ const AppNavigator = createStackNavigator(
       screen: MyCache,
       navigationOptions: {
         title: '缓存'
+      }
+    },
+    TestAnimate: {
+      screen: TestAnimate,
+      navigationOptions: {
+        title: '动画'
       }
     }
   },
